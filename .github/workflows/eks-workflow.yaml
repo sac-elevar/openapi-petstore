@@ -69,8 +69,8 @@ jobs:
 
       - name: Plan Terraform
         working-directory: ./terraform
-        run: terraform plan -var="aws_access_key_id=${TF_VAR_aws_access_key_id}" -var="aws_secret_access_key=${TF_VAR_secret_access_key}"
+        run: terraform plan
 
       - name: Apply Terraform
         working-directory: ./terraform
-        run: terraform apply -var="aws_access_key_id=${TF_VAR_aws_access_key_id}" -var="aws_secret_access_key=${TF_VAR_secret_access_key}" -auto-approve
+        run: terraform apply -auto-approve
