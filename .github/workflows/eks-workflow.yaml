@@ -29,7 +29,7 @@ jobs:
       - name: Build, tag, and push docker image to Amazon ECR
         env:
           REGISTRY: 892935461155.dkr.ecr.ap-southeast-1.amazonaws.com
-          REPOSITORY: sac-ecr-devops-repo
+          REPOSITORY: sac-petstore-app
           IMAGE_TAG: 1.0.0
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
@@ -59,3 +59,7 @@ jobs:
       - name: Plan Terraform
         working-directory: ./terraform
         run: terraform plan
+
+      - name: Apply Terraform
+        working-directory: ./terraform
+        run: terraform apply -auto-approve
