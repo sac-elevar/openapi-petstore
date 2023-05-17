@@ -51,20 +51,14 @@ jobs:
             token = \"$TF_API_TOKEN\"
           }" >> ~/.terraformrc
 
-      - name: Debug log pre
-        run: pwd && ls
-
-      - name: Change terraform execution directory
-        run: cd terraform
-
-      - name: Debug log post
-        run: pwd && ls
-
       - name: Initialize Terraform
+        working-directory: ./terraform
         run: terraform init
 
       - name: Validate Terraform
+        working-directory: ./terraform
         run: terraform validate
 
       - name: Plan Terraform
+        working-directory: ./terraform
         run: terraform plan
