@@ -32,10 +32,6 @@ resource "kubernetes_deployment" "sac-petstore-app" {
           image = "892935461155.dkr.ecr.ap-southeast-1.amazonaws.com/sac-petstore-app:1.0.0"
           name  = "sac-petstore-app"
 
-          ports {
-            container_port = 8080
-          }
-
           env {
             name  = "SPRING_PROFILES_ACTIVE"
             value = "development"
