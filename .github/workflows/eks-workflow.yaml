@@ -34,10 +34,10 @@ jobs:
           }" >> ~/.terraformrc
 
       - name: Initialize Terraform
-        run: terraform init -debug
+        run: terraform init
 
       - name: Validate Terraform
-        run: terraform validate -debug
+        run: terraform validate
 
       - name: Plan Terraform
-        run: terraform plan -debug
+        run: terraform plan
