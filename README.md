@@ -50,6 +50,8 @@ Environment variables:
 * `DISABLE_API_KEY` : if set to "1", the server will not check the api key for the relevant endpoints.
 * `DISABLE_OAUTH` : if set to "1", the server will not check for an OAuth2 access token.
 
+## Deployment
+
 ## License
 
 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)
