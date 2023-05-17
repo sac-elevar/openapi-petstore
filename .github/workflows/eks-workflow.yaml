@@ -33,6 +33,9 @@ jobs:
             token = \"$TF_API_TOKEN\"
           }" >> ~/.terraformrc
 
+      - name: Change working directory
+        run: cd terraform
+
       - name: Initialize Terraform
         run: terraform init
 
