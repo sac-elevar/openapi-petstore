@@ -7,9 +7,11 @@ variable "region" {
 variable "access_key_id" {
   description = "AWS ACCESS_KEY_ID"
   type = string
+  default = ""
 }
 
 variable "secret_access_key" {
   description = "AWS SECRET_ACCESS_KEY"
   type = string
+  default = ""
 }
