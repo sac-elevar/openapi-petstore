@@ -2,7 +2,7 @@ terraform {
   backend "remote" {
     organization = "sac-org"
     workspaces {
-      name = "openapi-petstore"
+      name = "tf-cloud-workspace"
     }
   }
 }
