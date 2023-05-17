@@ -54,6 +54,9 @@ jobs:
       - name: Change terraform execution directory
         run: cd terraform
 
+      - name: Change terraform execution directory
+        run: pwd && ls
+
       - name: Initialize Terraform
         run: terraform init
 
