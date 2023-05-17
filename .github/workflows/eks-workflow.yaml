@@ -19,8 +19,13 @@ jobs:
       - name: Build Application
         run: mvn package
 
+      - name: Set Terraform environment variables
+        run: |
+          echo "TF_VAR_aws_access_key_id=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+          echo "TF_VAR_aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+
       - name: Verify Envs
-        run: echo "key_id - $TF_VAR_access_key_id" && echo "key_id - $TF_VAR_secret_access_key"
+        run: env | grep TF_VAR_aws_
 
       - name: Set up AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -64,8 +69,8 @@ jobs:
 
       - name: Plan Terraform
         working-directory: ./terraform
-        run: terraform plan
+        run: terraform plan -var="aws_access_key_id=${TF_VAR_aws_access_key_id}" -var="aws_secret_access_key=${TF_VAR_secret_access_key}"
 
       - name: Apply Terraform
         working-directory: ./terraform
-        run: terraform apply -auto-approve
+        run: terraform apply -var="aws_access_key_id=${TF_VAR_aws_access_key_id}" -var="aws_secret_access_key=${TF_VAR_secret_access_key}" -auto-approve
