@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  ECR_REPOSITORY: sac-ecr-repo
+  ECR_REPOSITORY: sac-ecr-devops-repo
 
 jobs:
   terraform:
