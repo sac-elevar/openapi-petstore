@@ -30,7 +30,7 @@ jobs:
         env:
           REGISTRY: 892935461155.dkr.ecr.ap-southeast-1.amazonaws.com
           REPOSITORY: sac-petstore-app
-          IMAGE_TAG: 1.0.0
+          IMAGE_TAG: 1.0.0-${{ github.run_id }}
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
