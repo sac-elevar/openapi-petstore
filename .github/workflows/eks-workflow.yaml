@@ -5,9 +5,6 @@ on:
     branches:
       - master
 
-env:
-  ECR_REPOSITORY: sac-ecr-devops-repo
-
 jobs:
   terraform:
     runs-on: ubuntu-latest
@@ -32,7 +29,7 @@ jobs:
       - name: Build, tag, and push docker image to Amazon ECR
         env:
           REGISTRY: 892935461155.dkr.ecr.ap-southeast-1.amazonaws.com
-          REPOSITORY: sac-ecr-repo
+          REPOSITORY: sac-ecr-devops-repo
           IMAGE_TAG: 1.0.0
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
