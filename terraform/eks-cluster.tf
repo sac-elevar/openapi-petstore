@@ -16,12 +16,12 @@ module "eks" {
 
   eks_managed_node_groups = {
     one = {
-      name = "node-group-1"
+      name = "petstore-node-group"
 
       instance_types = ["t2.micro"]
 
       min_size = 1
-      max_size = 3
+      max_size = 2
       desired_size = 2
     }
   }
